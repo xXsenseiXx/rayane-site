@@ -4,7 +4,13 @@
 
 
 {% block body %}
-    <h2> 
-        {{current_user}}    
-    </h2>
+    {{current_user}}
+    {% for i in user %}     
+        {% for j in product %}
+            {% if j.user == i %}           
+            <img src="{{ j.image.url }}" alt="shirt" width="300px" height="200px">
+            {% endif %}
+        {% endfor %}
+    {% endfor %}    
+
 {% endblock %}

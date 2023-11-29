@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import user
 from django.core.exceptions import ObjectDoesNotExist
+
+from .models import user, product
 
 # Create your views here.
 
@@ -17,5 +18,5 @@ def index(request):
             )
             new_user.save()
     return render(request, "site_temp/index.html", {
-        "user": user , "current_user": current_user  
+        "user": user.objects.all() , "current_user": current_user, "product": product.objects.all()  
     })
