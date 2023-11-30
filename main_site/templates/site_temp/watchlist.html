@@ -1,0 +1,17 @@
+{% extends 'site_temp/layout.html' %}
+
+{% block title %}Watchlist{% endblock %}
+
+{% block body %}
+{{item}}
+        {% if item %}
+            {% for i in item %}
+            <img src="{{ i.item.image.url }}" alt="shirt" width="300px" height="200px">
+            {% endfor %}
+        {% else %}
+        <p>no item to watch</p>
+        {% endif %}
+
+
+
+{% endblock %}

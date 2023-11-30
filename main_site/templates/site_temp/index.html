@@ -4,13 +4,14 @@
 
 
 {% block body %}
-    {{current_user}}
-    {% for i in user %}     
-        {% for j in product %}
-            {% if j.user == i %}           
-            <img src="{{ j.image.url }}" alt="shirt" width="300px" height="200px">
-            {% endif %}
-        {% endfor %}
-    {% endfor %}    
-
+<h1>{{current_user}}</h1>
+    {% for item in product %}
+        <form action="{% url 'index' %}" method="post">
+            {% csrf_token %}
+            <img src="{{ item.image.url }}" alt="shirt" width="300px" height="200px">
+            <input type="hidden" name="product_id" value="{{ item.id }}" >
+            <input type="submit">
+        </form>
+    {% endfor %}
+    <a href="{% url 'watch' %}">watchlist</a>
 {% endblock %}

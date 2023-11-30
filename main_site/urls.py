@@ -5,7 +5,8 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path("", views.index, name="front_site")
+    path("", views.index, name="index"),
+    path("watch_list", views.watch_list, name="watch")
 ]
 
 if settings.DEBUG:
