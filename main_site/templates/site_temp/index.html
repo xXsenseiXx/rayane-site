@@ -4,7 +4,7 @@
 
 
 {% block body %}
-<h1>{{current_user}}</h1>
+<div class="home-content">
     {% for item in product %}
         <form action="{% url 'index' %}" method="post">
             {% csrf_token %}
@@ -13,5 +13,5 @@
             <input type="submit">
         </form>
     {% endfor %}
-    <a href="{% url 'watch' %}">watchlist</a>
+</div>
 {% endblock %}
